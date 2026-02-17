@@ -1,0 +1,12 @@
+-- 컬럼 : ID, EMAIL, FIRST_NAME, LAST_NAME
+-- 테이블 : DEVELOPER_INFOS
+-- 조건 : Python 스킬
+-- 정렬 : ID
+SELECT
+    ID,
+    EMAIL,
+    FIRST_NAME,
+    LAST_NAME
+FROM DEVELOPER_INFOS
+WHERE 'Python' IN (SKILL_1, SKILL_2, SKILL_3)
+ORDER BY ID
