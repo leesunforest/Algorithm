@@ -1,0 +1,8 @@
+-- 컬럼 : ANIMAL_ID, NAME
+-- 테이블 : ANIMAL_INS
+-- 정렬 : 아이디순
+SELECT
+    ANIMAL_ID,
+    NAME
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID
