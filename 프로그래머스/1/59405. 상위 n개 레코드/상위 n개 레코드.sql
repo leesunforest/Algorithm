@@ -1,0 +1,8 @@
+-- 컬럼 : NAME
+-- 테이블 : ANIMAL_INS
+-- 정렬 : 보호시작일 LIMIT 1
+SELECT
+    NAME
+FROM ANIMAL_INS
+ORDER BY DATETIME
+LIMIT 1
