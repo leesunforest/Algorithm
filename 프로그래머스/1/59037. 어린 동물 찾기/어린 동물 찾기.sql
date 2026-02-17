@@ -1,0 +1,10 @@
+-- 컬럼 : ANIMAL_ID, NAME
+-- 테이블 : ANIMAL_INS
+-- 조건 : 젊은 동물
+-- 정렬 : 아이디순
+SELECT
+    ANIMAL_ID,
+    NAME
+FROM ANIMAL_INS
+WHERE INTAKE_CONDITION != 'Aged'
+ORDER BY ANIMAL_ID
