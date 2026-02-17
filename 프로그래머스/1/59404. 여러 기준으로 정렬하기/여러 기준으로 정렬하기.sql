@@ -1,0 +1,9 @@
+-- 컬럼 : ANIMAL_ID, NAME, DATETIME
+-- 테이블 : ANIMAL_INS
+-- 정렬 : 이름순, 보호시작일 내림차순
+SELECT
+    ANIMAL_ID,
+    NAME,
+    DATETIME
+FROM ANIMAL_INS
+ORDER BY NAME, DATETIME DESC
