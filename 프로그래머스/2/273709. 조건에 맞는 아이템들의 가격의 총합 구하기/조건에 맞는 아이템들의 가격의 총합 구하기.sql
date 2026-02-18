@@ -1,0 +1,8 @@
+-- 문제 : 희귀도가 'LEGEND'인 아이템들의 가격의 총합
+-- 컬럼 : TOTAL_PRICE
+-- 테이블 : ITEM_INFO
+-- 조건 : RARITY='LEGEND'
+SELECT
+    SUM(PRICE) AS TOTAL_PRICE
+FROM ITEM_INFO
+WHERE RARITY='LEGEND'
