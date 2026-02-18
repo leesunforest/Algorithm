@@ -1,0 +1,7 @@
+-- 컬럼 : FISH_COUNT
+-- 테이블 : FISH_INFO
+-- 조건 : 길이가 10cm 이하
+SELECT
+    COUNT(*) AS FISH_COUNT
+FROM FISH_INFO
+WHERE LENGTH IS NULL
