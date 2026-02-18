@@ -1,0 +1,11 @@
+-- 문제 : 09:00부터 19:59까지, 각 시간대별로 입양이 몇 건이나 발생했는지 조회
+-- 컬럼 : HOUR, COUNT
+-- 테이블 : ANIMAL_OUTS
+-- 정렬 : 시간대 순
+SELECT
+    DATE_FORMAT(DATETIME, '%H') AS HOUR,
+    COUNT(*) AS COUNT
+FROM ANIMAL_OUTS
+WHERE DATE_FORMAT(DATETIME, '%H') BETWEEN 9 AND 19
+GROUP BY HOUR
+ORDER BY HOUR
