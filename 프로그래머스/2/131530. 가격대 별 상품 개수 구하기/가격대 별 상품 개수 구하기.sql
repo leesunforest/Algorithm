@@ -1,0 +1,11 @@
+-- 문제 : 만원 단위의 가격대 별로 상품 개수를 출력
+-- 컬럼 : PRICE_GROUP, PRODUCTS
+-- 테이블 : PRODUCT
+-- 정렬 : 가격대 기준 오름차순
+
+SELECT
+    (PRICE DIV 10000) * 10000 AS PRICE_GROUP,
+    COUNT(*) AS PRODUCTS
+FROM PRODUCT
+GROUP BY (PRICE DIV 10000) * 10000
+ORDER BY PRICE_GROUP
