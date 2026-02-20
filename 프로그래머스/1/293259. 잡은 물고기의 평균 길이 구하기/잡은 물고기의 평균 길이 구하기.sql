@@ -4,12 +4,10 @@
 -- 조건 : 10cm 이하의 물고기들은 10cm 로 취급
 
 SELECT
-    ROUND(AVG(LENGTH),2) AS AVERAGE_LENGTH
-FROM(
-    SELECT
+    ROUND(AVG(
         CASE
             WHEN LENGTH IS NULL THEN 10
             ELSE LENGTH
-        END AS LENGTH
-    FROM FISH_INFO
-) b
+        END
+    ), 2) AS AVERAGE_LENGTH
+FROM FISH_INFO
