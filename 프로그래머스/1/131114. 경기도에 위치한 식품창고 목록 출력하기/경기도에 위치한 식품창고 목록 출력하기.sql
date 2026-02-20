@@ -1,0 +1,16 @@
+-- 문제 :  경기도에 위치한 창고의 ID, 이름, 주소, 냉동시설 여부를 조회
+-- 컬럼 : WAREHOUSE_ID, WAREHOUSE_NAME, ADDRESS, FREEZER_YN
+-- 테이블 : FOOD_WAREHOUSE 
+-- 조건 : 주소가 경기도
+-- 정렬 : 창고ID기준 오름차순
+SELECT
+    WAREHOUSE_ID,
+    WAREHOUSE_NAME, 
+    ADDRESS,
+    CASE
+        WHEN FREEZER_YN IS NULL THEN 'N'
+        ELSE FREEZER_YN
+    END AS FREEZER_YN
+FROM FOOD_WAREHOUSE
+WHERE ADDRESS LIKE '%경기도%'
+ORDER BY WAREHOUSE_ID
