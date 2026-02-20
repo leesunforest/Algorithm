@@ -1,0 +1,16 @@
+-- 문제 : 완료된 중고 거래의 총금액이 70만 원 이상인 사람의 회원 ID, 닉네임, 총거래금액을 조회
+-- 컬럼 : USER_ID, NICKNAME, TOTAL_SALES
+-- 테이블 : USED_GOODS_BOARD, USED_GOODS_USER
+-- 조건 : 거래상태=완료, 총금액 >= 70만원
+-- 정렬 : 총거래금액 기준 오름차순
+SELECT
+    USER_ID,
+    NICKNAME, 
+    SUM(PRICE) AS TOTAL_SALES
+FROM USED_GOODS_BOARD
+LEFT JOIN USED_GOODS_USER
+ON WRITER_ID = USER_ID
+WHERE STATUS = 'DONE'
+GROUP BY USER_ID
+HAVING TOTAL_SALES >= 700000
+ORDER BY TOTAL_SALES
