@@ -1,0 +1,12 @@
+-- 문제 : 물고기의 종류 별 물고기의 이름과 잡은 수를 출력
+-- 컬럼 : FISH_COUNT, FISH_NAME
+-- 테이블 : FISH_INFO, FISH_NAME_INFO 
+-- 정렬 : 잡은수 기준 내림차순
+SELECT
+    COUNT(*) AS FISH_COUNT,
+    FISH_NAME
+FROM FISH_INFO
+JOIN FISH_NAME_INFO
+USING (FISH_TYPE)
+GROUP BY FISH_NAME
+ORDER BY FISH_COUNT DESC
