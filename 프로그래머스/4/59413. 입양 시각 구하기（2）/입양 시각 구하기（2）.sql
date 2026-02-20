@@ -1,0 +1,19 @@
+-- 문제 : 0시부터 23시까지, 각 시간대별로 입양이 몇 건이나 발생했는지 조회
+-- 컬럼 : HOUR, COUNT
+-- 테이블 : ANIMAL_OUTS 
+-- 정렬 : 시간대순으로 정렬
+WITH RECURSIVE HOURS AS (
+    SELECT 0 AS HOUR
+    UNION ALL
+    SELECT HOUR + 1
+    FROM HOURS
+    WHERE HOUR < 23
+)
+SELECT
+    h.HOUR,
+    COUNT(a.ANIMAL_ID) AS COUNT
+FROM HOURS h
+LEFT JOIN ANIMAL_OUTS a
+    ON h.HOUR = HOUR(a.DATETIME)
+GROUP BY h.HOUR
+ORDER BY h.HOUR
