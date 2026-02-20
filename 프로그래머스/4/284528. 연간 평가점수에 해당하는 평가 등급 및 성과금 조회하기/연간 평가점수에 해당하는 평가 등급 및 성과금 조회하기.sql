@@ -1,0 +1,30 @@
+-- 문제 : 사원별 성과금 정보를 조회
+-- 컬럼 : EMP_NO, EMP_NAME, GRADE, BONUS
+-- 테이블 : HR_EMPLOYEES, HR_DEPARTMENT(DEPT_ID) , HR_GRADE(EMP_NO)
+-- 정렬 : 사번 기준 오름차순
+SELECT
+    EMP_NO,
+    EMP_NAME,
+    CASE
+        WHEN AVG_SCORE >= 96 THEN 'S'
+        WHEN AVG_SCORE >= 90 THEN 'A'
+        WHEN AVG_SCORE >= 80 THEN 'B'
+    ELSE 'C'
+    END AS GRADE,
+    CASE
+        WHEN AVG_SCORE >= 96 THEN 0.2*SAL
+        WHEN AVG_SCORE >= 90 THEN 0.15*SAL
+        WHEN AVG_SCORE >= 80 THEN 0.1*SAL
+        ELSE 0
+    END AS BONUS
+FROM HR_EMPLOYEES
+JOIN (
+    SELECT 
+        EMP_NO, 
+        AVG(SCORE) AS AVG_SCORE
+    FROM HR_GRADE
+    WHERE YEAR = 2022
+    GROUP BY EMP_NO
+) a
+USING (EMP_NO)
+ORDER BY EMP_NO
